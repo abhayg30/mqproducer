@@ -18,6 +18,7 @@ public class RabbitMQProducerController {
     }
 
     @PostMapping("/coordinates")
+    @CrossOrigin
     public ResponseEntity<String> generateLiveLocationCoordinate(@RequestParam String sessionId,
                                                                  @RequestParam double lat,
                                                                  @RequestParam double lon){
@@ -32,6 +33,7 @@ public class RabbitMQProducerController {
 
     //TODO: Handshake controller to dynamically create queues
     @PostMapping("handshake")
+    @CrossOrigin
     public ResponseEntity<String> handshakeForSessionCreation(@RequestParam String sessionId){
         System.out.println("handshake for session: "+sessionId+ " done");
         rabbitTemplate.convertAndSend("handshakeExchange", "handshake", sessionId);
