@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/live-location", produces = MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin
 public class RabbitMQProducerController {
 
     private final RabbitTemplate rabbitTemplate;
