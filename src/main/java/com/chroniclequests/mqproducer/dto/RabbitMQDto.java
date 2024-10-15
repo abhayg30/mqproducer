@@ -12,10 +12,11 @@ public class RabbitMQDto{
     private double lon;
     private double radius;
 
-    public RabbitMQDto(String sessionId, double lat, double lon) {
+    public RabbitMQDto(String sessionId, double lat, double lon, double radius) {
         this.sessionId = sessionId;
         this.lat = lat;
         this.lon = lon;
+        this.radius = radius;
     }
 
 

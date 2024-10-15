@@ -20,10 +20,11 @@ public class RabbitMQProducerController {
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<String> generateLiveLocationCoordinate(@RequestParam String sessionId,
                                                                  @RequestParam double lat,
-                                                                 @RequestParam double lon){
+                                                                 @RequestParam double lon, @RequestParam double radius){
+
         System.out.println("Code is here");
         String routingKey = "topic."+sessionId;
-        RabbitMQDto rabbitMQDto = new RabbitMQDto(sessionId, lat, lon);
+        RabbitMQDto rabbitMQDto = new RabbitMQDto(sessionId, lat, lon, radius);
         rabbitTemplate.convertAndSend("topicExchange",routingKey, rabbitMQDto);
 
         return ResponseEntity.ok("Location sending for sessionId: "+sessionId);
