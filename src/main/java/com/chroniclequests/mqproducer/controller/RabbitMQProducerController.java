@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/live-location", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RabbitMQProducerController {
 
